@@ -1,0 +1,61 @@
+﻿<Window x:Class="wpf_Drawing.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:wpf_Drawing"
+        mc:Ignorable="d"
+        Title="Draw" Height="439" Width="530"
+        ResizeMode="NoResize">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="400" />
+            <ColumnDefinition Width="130" />
+            <!--<ColumnDefinition Width="56.667" />-->
+            <!--<ColumnDefinition Width="73.333"/>-->
+        </Grid.ColumnDefinitions>
+        <Canvas x:Name="cnv" Grid.Column="0" Background="AliceBlue" 
+                MouseMove="cnv_MouseMove"  
+                Loaded="cnv_Loaded"
+                MouseDown="cnv_MouseDown"
+                MouseEnter="cnv_MouseEnter">
+        </Canvas>
+        <StackPanel Grid.Column="1" Grid.ColumnSpan="2" Margin="5,0,20,0" MouseEnter="StackPanel_MouseEnter">
+            <StackPanel Orientation="Horizontal">
+                <Label>Elements:</Label>
+                <Label Name="lbl_count" Content="{Binding Counter}" Width="50"></Label>
+            </StackPanel>
+            <Separator/>
+            <StackPanel Orientation="Horizontal">
+                <Label>Width:</Label>
+                <Label Name="lbl_width" Width="50"></Label>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <Label>Height:</Label>
+                <Label Name="lbl_height" Width="50"></Label>
+            </StackPanel>
+            <Separator/>
+            <StackPanel Orientation="Horizontal">
+                <Label>X:</Label>
+                <Label Name="lbl_x" Width="50" Content="{Binding X}" ContentStringFormat=" {0} px"></Label>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <Label>Y:</Label>
+                <Label Name="lbl_y" Width="50" Content="{Binding Y}" ContentStringFormat=" {0} px"></Label>
+            </StackPanel>
+            <Separator/>
+            <Button Margin="5,5,5,2" Click="Element_Click">Rectangle</Button>
+            <Button Margin="5,2,5,2" Click="Element_Click">Circle</Button>
+            <Button Margin="5,2,5,5" Click="Element_Click">Free Hand</Button>
+            <Separator/>
+            <Button  Margin="5,5,5,2" Background="Red" Click="Color_Click">Red</Button>
+            <Button Margin="5,2,5,2" Background="Green" Click="Color_Click">Green</Button>
+            <Button Margin="5,2,5,5" Background="Blue" Click="Color_Click">Blue</Button>
+            <Separator/>
+            <Button Margin="5,5,5,2" Click="Action_Click">Delete</Button>
+            <Button Margin="5,2,5,2" Click="Action_Click">Delete All</Button>
+            <Button Margin="5,2,5,2" Click="Action_Click">Save As</Button>
+        </StackPanel>
+
+    </Grid>
+</Window>
